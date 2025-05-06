@@ -21,7 +21,8 @@
         <h2>短縮されたURL:</h2>
         <p><a href="{{ url_for('redirect_to_url', short_url=short_url) }}" target="_blank">http://127.0.0.1:5000/{{
                 short_url }}</a></p>
-        <p>元のURL: {{ long_url }}</p>
+        <p>元のURL: <span class="original-url" style="word-wrap: break-word; display: block; max-width: 100%;">{{ long_url
+                }}</span></p>
         {% endif %}
     </div>
 </body>
