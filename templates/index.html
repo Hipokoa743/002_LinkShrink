@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL短縮アプリ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>URL短縮アプリ</h1>
+        <form method="POST">
+            <label for="long_url">長いURLを入力してください:</label>
+            <input type="text" id="long_url" name="long_url" required>
+            <button type="submit">短縮する</button>
+        </form>
+
+        {% if short_url %}
+        <h2>短縮されたURL:</h2>
+        <p><a href="{{ url_for('redirect_to_url', short_url=short_url) }}" target="_blank">http://127.0.0.1:5000/{{
+                short_url }}</a></p>
+        <p>元のURL: {{ long_url }}</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
